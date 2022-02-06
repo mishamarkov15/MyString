@@ -1,2 +1,7 @@
 # MyString
-MIPT HomeWork
+Реализация класса **string**.
+
+## Конструкторы
+1. String () - создаёт пустую строку.
+2. String (const char *) - создаёт строку из массива char.
+3.

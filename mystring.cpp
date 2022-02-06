@@ -133,6 +133,27 @@ unsigned long String::find(const String &dest) const
     return len_;
 }
 
+unsigned long String::rfind(const String &dest) const
+{
+    if (dest.len_ > len_ || dest.len_ == 0)
+        return len_;
+    unsigned long curr_ind = dest.len_ - 1;
+    for (unsigned long i = len_; i > 0; --i)
+    {
+        if (str_[i - 1] == dest.str_[curr_ind])
+        {
+            if (curr_ind == 0)
+                return i - 1;
+            --curr_ind;
+        }
+        else
+        {
+            curr_ind = dest.len_ - 1;
+        }
+    }
+    return len_;
+}
+
 std::ostream& operator<< (std::ostream &fout, const String &string)
 {
     for (unsigned long i = 0; i < string.len_; ++i)

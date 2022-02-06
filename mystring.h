@@ -19,7 +19,7 @@ public:
     String& operator+=(const String&);
     String& operator+=(const char);
 
-    const String& substr(unsigned long start, unsigned count);
+    const String substr(unsigned long start, long long count = -1) const;
 
     const char& operator[](unsigned long index) const;
     char& operator[](unsigned long index);

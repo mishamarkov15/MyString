@@ -81,6 +81,18 @@ const String operator+(const String &other, const char sym)
     return tmp += sym;
 }
 
+const String String::substr(unsigned long start, long long count) const
+{
+    if (count == -1)
+        return String(*this);
+    String res;
+    if (start + count >= len_)
+        count = len_ - start;
+    for (unsigned long i = start; i < start + count; ++i)
+        res += str_[i];
+    return res;
+}
+
 const char& String::operator[](unsigned long index) const
 {
     return str_[index];

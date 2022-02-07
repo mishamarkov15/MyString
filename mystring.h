@@ -18,6 +18,7 @@ public:
     String& operator=(const String&);
     String& operator+=(const String&);
     String& operator+=(const char);
+    String& operator*=(const size_t);
 
     const String substr(unsigned long start, long long count = -1) const;
 
@@ -52,5 +53,6 @@ private:
 
 const String operator+(const String&, const String&);
 const String operator+(const String&, const char);
+const String operator*(const String&, const size_t);
 
 #endif // MYSTRING_H

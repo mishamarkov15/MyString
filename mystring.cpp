@@ -67,9 +67,7 @@ const String operator+(const String &other, const String &other2)
 String& String::operator+=(const char sym)
 {
     if (1 + len_ > cap_)
-    {
         getmem(ceil(log2(1 + len_)));
-    }
     ++len_;
     str_[len_-1] = sym;
     return *this;
@@ -79,6 +77,27 @@ const String operator+(const String &other, const char sym)
 {
     String tmp(other);
     return tmp += sym;
+}
+
+String& String::operator*=(const size_t value)
+{
+    if (value == 0)
+    {
+        this->clear();
+        return *this;
+    }
+    if (len_ * value > cap_)
+        getmem(ceil(log2(len_ * value)));
+    String tmp(*this);
+    for (size_t i = 0; i < value; ++i)
+        *this += tmp;
+    return *this;
+}
+
+const String operator*(const String &lhs, const size_t value)
+{
+    String tmp(lhs);
+    return tmp *= value;
 }
 
 const String String::substr(unsigned long start, long long count) const
@@ -105,7 +124,6 @@ char& String::operator[](unsigned long index)
 
 void String::clear()
 {
-    delete [] str_;
     len_ = 0;
     cap_ = 0;
 }

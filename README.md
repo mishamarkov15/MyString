@@ -9,12 +9,22 @@
 5. String (const String &other) - _конструктор копирования_. Создаёт строку _из строки other_.
 
 ## Перегруженные бинарные операторы
-1. String& operator= (const String &) - оператор присваивания.
-2. String& operator+= (const String &) - оператор скоращённого сложения со строкой.
-3. const String operator+ (const String &a, const String &b) - оператор сложения.
-4. String& operator+= (const char sym) - оператор сокращённого сложения с символом.
-5. const String operator+ (const String &, const char) - оператор сложения с символом.
-6. std::ostream& operator<< (std::ostream &, const String &) - вывод в поток.
-7. std::istream& operator>> (std::istream &, String &) - ввод из потока.
+1. operator= (const String &) - оператор присваивания.
+2. operator+= (const String &) - оператор скоращённого сложения со строкой.
+3. operator+ (const String &a, const String &b) - оператор сложения.
+4. operator+= (const char sym) - оператор сокращённого сложения с символом.
+5. operator+ (const String &, const char) - оператор сложения с символом.
+6. operator<< (std::ostream &, const String &) - вывод в поток.
+7. operator>> (std::istream &, String &) - ввод из потока.
 
-## 
+## Различные методы, преобразовывающие строку
+1. clear () - делает строку пустой.
+2. push_back (const char sym) - добавить символ sym в конец строки.
+3. pop_back () - убирает символ из конца строки и возвращает его.
+4. front () - возвращает ссылку на элемент, стоящий в самом начале строки, позволяя изменить его.
+5. back () - возвращает ссылку на элемент, стоящий в самом конце строки, позволяя изменить его.
+
+## Различные методы, не изменяющие строку
+1. empty () - проверяет пустая ли строка.
+2. find (const String &dest) - находит самое левое вхождение dest в строке, если dest не была найдена, то возвращает длину строки.
+3. rfind (const String &dest) - находит самое правое вхождение dest в строке, если dest не была найдена, то возвражает длину строки.
